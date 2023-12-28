@@ -40,10 +40,14 @@ def lets_try():
                                              "//li[@type='button'] |"
                                              "//li[@class='submit']")
     print("elements = ", elements)
+
     for elem in elements:
         # dict.get(key, default) - возвращает значение ключа, но если его нет,
         # не бросает исключение, а возвращает default (по умолчанию None).
+        last_btn_x = elem.location['x']
+        last_btn_y = elem.location['y']
         print("Loc : \n", "x =", elem.location['x'], ", y =", elem.location['y'])
+
         width_el = elem.size['width']
         height_el = elem.size['height']
         print("Sizes : \n", "width =", width_el, "height =", height_el, "\n\n")
@@ -57,8 +61,10 @@ def lets_try():
     print("after convert to RGB =", numpy_array.shape)
 
     img_draw = ImageDraw.Draw(img, mode='RGB')
-    # img_draw.rectangle([786, 554, 929, 608], outline='green', width= 3)
-    img_draw.rectangle([786, 554, 828, 606], outline='green', width=3) - Неверно выбрал нач точку
+    # img_draw.rectangle([786, 554, 828, 606], outline='green', width=3)
+    # сместить по х - гдето на 30-40
+    img_draw.rectangle([last_btn_x, last_btn_y, last_btn_x + width_el, last_btn_y + height_el], outline='green', width=3)
+    # img_draw.rectangle([800, 554, 838, 596], outline='red', width=3)
     # img_draw.rectangle([1115, 1124, 929, 608], outline='green', width=3)
     img.show()
 
