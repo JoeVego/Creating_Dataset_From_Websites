@@ -18,7 +18,7 @@ def better_version(driver_path, pic_path, url):
     # print(html)
     # driver.quit()
     # Существуют разные поиски по классуЦсс, find_element_by_tag_name и тп.
-    list_of_elements_name = ["button", "text"]
+    list_of_elements_name = ["button", "text", "label"]
 
     for element_name in list_of_elements_name:
         if (element_name == "button"):
@@ -40,15 +40,15 @@ def better_version(driver_path, pic_path, url):
                            "//li[@type='button'] | "
                            "//li[@class='submit']")
         else:
-            xpath_query = ("//" + element_name + " | "
-                                                 "//input[@type='" + element_name + "'] | "
-                                                                                    "//input[@class='" + element_name + "'] | "
-                                                                                                                        "//a[@type='" + element_name + "']  | "
-                                                                                                                                                       "//a[@class='" + element_name + "']  | "
-                                                                                                                                                                                       "//div[@class='" + element_name + "']   | "
-                                                                                                                                                                                                                         "//div[@type='" + element_name + "']   | "
-                                                                                                                                                                                                                                                          "//li[@class='" + element_name + "'] | "
-                                                                                                                                                                                                                                                                                           "//li[@type='" + element_name + "']")
+            xpath_query = ("//" + element_name + " | " +
+                           "//input[@type='" + element_name + "'] | " +
+                           "//input[@class='" + element_name + "'] | " +
+                           "//a[@type='" + element_name + "']  | " +
+                           "//a[@class='" + element_name + "']  | " +
+                           "//div[@class='" + element_name + "']   | " +
+                           "//div[@type='" + element_name + "']   | " +
+                           "//li[@class='" + element_name + "'] | " +
+                           "//li[@type='" + element_name + "']")
 
         print("xpath =", xpath_query)
         xpath_query_result = driver.find_elements("xpath", xpath_query)
@@ -82,5 +82,6 @@ def better_version(driver_path, pic_path, url):
                                    outline='green',
                                    width=3)
 
+            img.save(pic_path)
         img.show()
-        driver.quit()
+    driver.quit()
