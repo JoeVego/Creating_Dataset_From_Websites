@@ -1,5 +1,5 @@
 from selenium import webdriver
-from PIL import Image
+from PIL import Image, ImageDraw
 import numpy as np
 
 def lets_try():
@@ -43,9 +43,10 @@ def lets_try():
     for elem in elements:
         # dict.get(key, default) - возвращает значение ключа, но если его нет,
         # не бросает исключение, а возвращает default (по умолчанию None).
-        location = elem.location
-        # print(location)
-        print("x =", elem.location['x'], ", y =", elem.location['y'])
+        print("Loc : \n", "x =", elem.location['x'], ", y =", elem.location['y'])
+        width_el = elem.size['width']
+        height_el = elem.size['height']
+        print("Sizes : \n", "width =", width_el, "height =", height_el, "\n\n")
 
 
     driver.quit()
@@ -54,5 +55,11 @@ def lets_try():
     img = img.convert('RGB')
     numpy_array = np.array(img)
     print("after convert to RGB =", numpy_array.shape)
+
+    img_draw = ImageDraw.Draw(img, mode='RGB')
+    # img_draw.rectangle([786, 554, 929, 608], outline='green', width= 3)
+    img_draw.rectangle([786, 554, 828, 606], outline='green', width=3) - Неверно выбрал нач точку
+    # img_draw.rectangle([1115, 1124, 929, 608], outline='green', width=3)
+    img.show()
 
     # - beautiful soap - parsing html
