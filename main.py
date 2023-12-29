@@ -1,4 +1,4 @@
-from new_version import better_version
+from Create_Dataset import create_dataset_pictures
 
 PATH_PC = 'S:\\geckodriver\\geckodriver.exe'
 PATH_NB = 'C:\\Users\\Admin\\Desktop\\Учебные материалы\\вкр\\geckodriver.exe'
@@ -11,7 +11,7 @@ if __name__ == '__main__':
     # url = "https://www.avito.ru/"
     url = "https://developer.mozilla.org/ru/docs/Web/HTML/Element"
 
-    better_version(PATH_NB, PATH_PIC_NB, url)
+    create_dataset_pictures(PATH_NB, PATH_PIC_NB, url)
 
 
 
