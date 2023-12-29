@@ -18,37 +18,44 @@ def better_version(driver_path, pic_path, url):
     # print(html)
     # driver.quit()
     # Существуют разные поиски по классуЦсс, find_element_by_tag_name и тп.
-    list_of_elements_name = ["button", "text", "label"]
+    # кнопка, меню, надпись, окно, поле ввода, лист, таблица
+    list_of_elements_name = ["button", "menu", "label", "dialog", "input", "list", "table"]
 
     for element_name in list_of_elements_name:
-        if (element_name == "button"):
-            xpath_query = ("//button | "
-                           "//input[@type='submit'] | "
-                           "//input[@type='button'] | "
-                           "//input[@class='submit'] | "
-                           "//input[@class='button'] | "
-                           "//a[@class='submit'] |"
-                           "//a[@type='button'] |"
-                           "//a[@type='submit'] |"
-                           "//a[@class='button'] |"
-                           "//div[@class='button'] |"
-                           "//div[@type='button'] |"
-                           "//div[@class='submit'] | "
-                           "//li[@class='button'] |"
-                           "//div[@type='submit'] | "
-                           "//li[@type='submit'] | "
-                           "//li[@type='button'] | "
-                           "//li[@class='submit']")
-        else:
-            xpath_query = ("//" + element_name + " | " +
-                           "//input[@type='" + element_name + "'] | " +
-                           "//input[@class='" + element_name + "'] | " +
-                           "//a[@type='" + element_name + "']  | " +
-                           "//a[@class='" + element_name + "']  | " +
-                           "//div[@class='" + element_name + "']   | " +
-                           "//div[@type='" + element_name + "']   | " +
-                           "//li[@class='" + element_name + "'] | " +
-                           "//li[@type='" + element_name + "']")
+        # if (element_name == "button"):
+        #     # xpath_query = ("//button | "
+        #     #                "//input[@type='submit'] | "
+        #     #                "//input[@type='button'] | "
+        #     #                "//input[@class='submit'] | "
+        #     #                "//input[@class='button'] | "
+        #     #                "//a[@class='submit'] |"
+        #     #                "//a[@type='button'] |"
+        #     #                "//a[@type='submit'] |"
+        #     #                "//a[@class='button'] |"
+        #     #                "//div[@class='button'] |"
+        #     #                "//div[@type='button'] |"
+        #     #                "//div[@class='submit'] | "
+        #     #                "//li[@class='button'] |"
+        #     #                "//div[@type='submit'] | "
+        #     #                "//li[@type='submit'] | "
+        #     #                "//li[@type='button'] | "
+        #     #                "//li[@class='submit'] | "
+        #     #                "//span[@type='submit'] | "
+        #     #                "//span[@class='submit'] | "
+        #     #                "//span[@class='button'] | "
+        #     #                "//span[@type='button']")
+        #     xpath_query = "//button"
+        # else:
+        #     xpath_query = ("//" + element_name + " | " +
+        #                    "//input[@type='" + element_name + "'] | " +
+        #                    "//input[@class='" + element_name + "'] | " +
+        #                    "//a[@type='" + element_name + "']  | " +
+        #                    "//a[@class='" + element_name + "']  | " +
+        #                    "//div[@class='" + element_name + "']   | " +
+        #                    "//div[@type='" + element_name + "']   | " +
+        #                    "//li[@class='" + element_name + "'] | " +
+        #                    "//li[@type='" + element_name + "']")
+        xpath_query = "//" + element_name
 
         print("xpath =", xpath_query)
         xpath_query_result = driver.find_elements("xpath", xpath_query)
@@ -58,6 +65,7 @@ def better_version(driver_path, pic_path, url):
         # цвет может раньше конвертировать а не тут - потом убирем отсюда
         img = img.convert('RGB')
         img_draw = ImageDraw.Draw(img, mode='RGB')
+
         # приведение к массиву
         # numpy_array = np.array(img)
         # print("after convert to RGB =", numpy_array.shape)
@@ -75,7 +83,7 @@ def better_version(driver_path, pic_path, url):
 
             if element_name == "button":
                 img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
-                                   outline='red',
+                                   outline='orange',
                                    width=3)
             else:
                 img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
