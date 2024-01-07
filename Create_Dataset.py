@@ -91,12 +91,9 @@ def create_dataset_pictures(picture_with_boxes_path, screenshot_path, text_file_
                                 " " + str(normalized_width) +
                                 " " + str(normalized_height) + "\n")
 
-            # img.save(picture_with_boxes_path)
-        # img.show()
     img.save(picture_with_boxes_path)
     img.show()
     text_file.close()
-    #     ДОБАВИТЬ КАРТИНКУ И ПОДПИСИ НЕ ТОЛЬКО ФОРМИРОВАНИЕ КАРТИНОК НО И ТХТ МЕТОК НУЖЕН
     driver.quit()
 
 
