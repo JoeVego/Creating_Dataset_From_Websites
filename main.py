@@ -23,7 +23,7 @@ if __name__ == '__main__':
     #может быть неверно для тхт файлов делать как для картинок пока так оставляю
     annotation_path = PATH_ANNOTATION_NB + str(pic_id_counter) + '.txt'
 
-    create_dataset_pictures(picture_with_boxes_path, PATH_SCREENSHOT_NB, url)
+    create_dataset_pictures(picture_with_boxes_path, picture_path, annotation_path, url)
 
 
 
