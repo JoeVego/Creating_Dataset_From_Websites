@@ -1,6 +1,8 @@
 from selenium import webdriver
 from PIL import Image, ImageDraw
-import numpy as np
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.common.exceptions import WebDriverException
 
 
 # Возможно поверху будет цикл пробегающийся по урлам и айдишникам
@@ -8,8 +10,15 @@ import numpy as np
 def create_dataset_pictures(picture_with_boxes_path, screenshot_path, text_file_path, url):
     """Возвращает картинку с найденными элементами и метки к ней"""
 
-    driver = webdriver.Firefox()
-    driver.get(url)
+    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+    # driver = webdriver.Firefox()
+    try:
+        driver.get(url)
+    except WebDriverException:
+        print("Exc by url =", url)
+        return
+    
+
     # Установка размера окна - чтобы на выходе получить 1200 на 1200
     driver.set_window_size(1212, 1291)
     # driver.get_full_page_screenshot_as_png()
