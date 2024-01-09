@@ -26,7 +26,7 @@ if __name__ == '__main__':
     picture_path = PATH_SCREENSHOT_PC + str(pic_id_counter) + '.png'
     annotation_path = PATH_ANNOTATION_PC + str(pic_id_counter) + '.txt'
 
-    for index in range(5):
+    for index in range(1000):
         picture_with_boxes_path = PATH_BOXES_PC + str(pic_id_counter) + '.png'
         picture_path = PATH_SCREENSHOT_PC + str(pic_id_counter) + '.png'
         annotation_path = PATH_ANNOTATION_PC + str(pic_id_counter) + '.txt'

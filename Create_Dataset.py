@@ -86,19 +86,67 @@ def create_dataset_pictures(picture_with_boxes_path, screenshot_path, text_file_
             if element_name == "button":
                 img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
                                    outline='orange',
-                                   width=1)
+                                   width=2)
                 text_file.write("0 " + str(normalized_center_x) +
                                 " " + str(normalized_center_y) +
                                 " " + str(normalized_width) +
                                 " " + str(normalized_height) + "\n")
-            else:
+            elif element_name == "menu":
                 img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
-                                   outline='green',
-                                   width=1)
+                                   outline='orange',
+                                   width=2)
                 text_file.write("1 " + str(normalized_center_x) +
                                 " " + str(normalized_center_y) +
                                 " " + str(normalized_width) +
                                 " " + str(normalized_height) + "\n")
+            elif element_name == "label":
+                img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
+                                   outline='orange',
+                                   width=2)
+                text_file.write("2 " + str(normalized_center_x) +
+                                " " + str(normalized_center_y) +
+                                " " + str(normalized_width) +
+                                " " + str(normalized_height) + "\n")
+            elif element_name == "dialog":
+                img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
+                                   outline='orange',
+                                   width=2)
+                text_file.write("3 " + str(normalized_center_x) +
+                                " " + str(normalized_center_y) +
+                                " " + str(normalized_width) +
+                                " " + str(normalized_height) + "\n")
+            elif element_name == "input":
+                img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
+                                   outline='orange',
+                                   width=2)
+                text_file.write("4 " + str(normalized_center_x) +
+                                " " + str(normalized_center_y) +
+                                " " + str(normalized_width) +
+                                " " + str(normalized_height) + "\n")
+            elif element_name == "list":
+                img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
+                                   outline='orange',
+                                   width=2)
+                text_file.write("5 " + str(normalized_center_x) +
+                                " " + str(normalized_center_y) +
+                                " " + str(normalized_width) +
+                                " " + str(normalized_height) + "\n")
+            elif element_name == "table":
+                img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
+                                   outline='orange',
+                                   width=2)
+                text_file.write("6 " + str(normalized_center_x) +
+                                " " + str(normalized_center_y) +
+                                " " + str(normalized_width) +
+                                " " + str(normalized_height) + "\n")
+            # else:
+            #     img_draw.rectangle([start_x, start_y, start_x + width, start_y + height],
+            #                        outline='green',
+            #                        width=2)
+            #     text_file.write("2 " + str(normalized_center_x) +
+            #                     " " + str(normalized_center_y) +
+            #                     " " + str(normalized_width) +
+            #                     " " + str(normalized_height) + "\n")
 
     img.save(picture_with_boxes_path)
     img.show()
