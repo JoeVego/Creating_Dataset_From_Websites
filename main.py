@@ -22,14 +22,14 @@ if __name__ == '__main__':
     second_sites_list = second_source_of_websites['site'].to_list()
 
     pic_id_counter = 0
-    picture_with_boxes_path = PATH_BOXES_PC + str(pic_id_counter) + '.png'
-    picture_path = PATH_SCREENSHOT_PC + str(pic_id_counter) + '.png'
-    annotation_path = PATH_ANNOTATION_PC + str(pic_id_counter) + '.txt'
+    picture_with_boxes_path = PATH_BOXES_NB + str(pic_id_counter) + '.png'
+    picture_path = PATH_SCREENSHOT_NB + str(pic_id_counter) + '.png'
+    annotation_path = PATH_ANNOTATION_NB + str(pic_id_counter) + '.txt'
 
     for index in range(1000):
-        picture_with_boxes_path = PATH_BOXES_PC + str(pic_id_counter) + '.png'
-        picture_path = PATH_SCREENSHOT_PC + str(pic_id_counter) + '.png'
-        annotation_path = PATH_ANNOTATION_PC + str(pic_id_counter) + '.txt'
+        picture_with_boxes_path = PATH_BOXES_NB + str(pic_id_counter) + '.png'
+        picture_path = PATH_SCREENSHOT_NB + str(pic_id_counter) + '.png'
+        annotation_path = PATH_ANNOTATION_NB + str(pic_id_counter) + '.txt'
 
         create_dataset_pictures(picture_with_boxes_path, picture_path, annotation_path, second_sites_list[index])
 

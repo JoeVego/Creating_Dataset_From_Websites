@@ -1,8 +1,8 @@
 from selenium import webdriver
 from PIL import Image, ImageDraw
 from selenium.webdriver.firefox.service import Service as FirefoxService
-from webdriver_manager.firefox import GeckoDriverManager
-from selenium.common.exceptions import WebDriverException
+# from webdriver_manager.firefox import GeckoDriverManager
+from selenium.common.exceptions import WebDriverException, TimeoutException
 
 
 # Возможно поверху будет цикл пробегающийся по урлам и айдишникам
@@ -10,11 +10,12 @@ from selenium.common.exceptions import WebDriverException
 def create_dataset_pictures(picture_with_boxes_path, screenshot_path, text_file_path, url):
     """Возвращает картинку с найденными элементами и метки к ней"""
 
-    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
-    # driver = webdriver.Firefox()
+    # driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+    driver = webdriver.Firefox()
+    driver.set_page_load_timeout(50)
     try:
         driver.get(url)
-    except WebDriverException:
+    except (WebDriverException, TimeoutException) :
         print("Exc by url =", url)
         return
     
@@ -175,10 +176,15 @@ def get_full_coordinates(start_x, start_y, center_x, center_y):
 
 
 def normalization(value):
+
+    print("value before norm = ", value)
     max_value = 1200
     min_value = 0
     # first = value - min_value
     # second = max_value - min_value
     # print("first =", first, " second =", second)
+    res = round((value - min_value) / (max_value - min_value), 6)
 
-    return round((value - min_value) / (max_value - min_value), 6)
+    print("value after norm = ", res)
+
+    return res
