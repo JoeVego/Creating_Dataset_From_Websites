@@ -150,7 +150,7 @@ def create_dataset_pictures(picture_with_boxes_path, screenshot_path, text_file_
             #                     " " + str(normalized_height) + "\n")
 
     img.save(picture_with_boxes_path)
-    img.show()
+    # img.show()
     text_file.close()
     driver.quit()
 
