@@ -22,12 +22,12 @@ if __name__ == '__main__':
     second_sites_list = second_source_of_websites['site'].to_list()
 
     # 72
-    pic_id_counter = 112
+    pic_id_counter = 213
     picture_with_boxes_path = PATH_BOXES_NB + str(pic_id_counter) + '.png'
     picture_path = PATH_SCREENSHOT_NB + str(pic_id_counter) + '.png'
     annotation_path = PATH_ANNOTATION_NB + str(pic_id_counter) + '.txt'
 
-    for index in range(1000 - pic_id_counter):
+    for index in range(pic_id_counter, 1000):
         picture_with_boxes_path = PATH_BOXES_NB + str(pic_id_counter) + '.png'
         picture_path = PATH_SCREENSHOT_NB + str(pic_id_counter) + '.png'
         annotation_path = PATH_ANNOTATION_NB + str(pic_id_counter) + '.txt'
